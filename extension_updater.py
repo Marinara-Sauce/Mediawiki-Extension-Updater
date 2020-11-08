@@ -206,7 +206,12 @@ def output_to_text(installed_extensions):
     :return: None
     """
     print("Logging to Installed_Extensions.txt...")
-    doc = open("Installed_Extensions.txt", "a")
+
+    # Remove the previous file
+    if path.exists("Installed_Extensions.txt"):
+        run_command("rm Installed_Extensions.txt")
+
+    doc = open(f"Installed_Extensions.txt", "a")
     for ex in installed_extensions:
         error = "Success!"
 
